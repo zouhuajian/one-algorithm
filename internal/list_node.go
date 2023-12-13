@@ -1,4 +1,4 @@
-package pkg
+package internal
 
 import "fmt"
 
@@ -22,8 +22,8 @@ func (head *ListNode) Print() {
 func BuildListNode(nums []int) *ListNode {
 	fakeHead := new(ListNode)
 	tail := fakeHead
-	for i := range nums {
-		tail.Next = &ListNode{Val: i}
+	for _, num := range nums {
+		tail.Next = &ListNode{Val: num}
 		tail = tail.Next
 	}
 	return fakeHead.Next
